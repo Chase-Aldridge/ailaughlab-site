@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  /* AI Lab theme (default) */
+  --color-accent: var(--theme-accent, #00E5A0);
+  --color-accent-secondary: var(--theme-accent-secondary, #00D4FF);
+  --color-bg-dark: var(--theme-bg-dark, #0A0E17);
+  --color-bg-card: var(--theme-bg-card, #111827);
+  --color-bg-card-hover: var(--theme-bg-card-hover, #1F2937);
+  --color-text-primary: #F9FAFB;
+  --color-text-secondary: #9CA3AF;
+  --color-text-muted: #6B7280;
+}
+
+/* Theme definitions as CSS custom properties on html */
+html,
+html[data-theme="ai-lab"] {
+  --theme-accent: #00E5A0;
+  --theme-accent-secondary: #00D4FF;
+  --theme-bg-dark: #0A0E17;
+  --theme-bg-card: #111827;
+  --theme-bg-card-hover: #1F2937;
+}
+
+html[data-theme="wild-west"] {
+  --theme-accent: #D4A574;
+  --theme-accent-secondary: #C87533;
+  --theme-bg-dark: #1A0F0A;
+  --theme-bg-card: #2A1A0E;
+  --theme-bg-card-hover: #3D2818;
+}
+
+html[data-theme="space-station"] {
+  --theme-accent: #A855F7;
+  --theme-accent-secondary: #3B82F6;
+  --theme-bg-dark: #0B0D1A;
+  --theme-bg-card: #13152B;
+  --theme-bg-card-hover: #1E2040;
+}
+
+html[data-theme="retro-arcade"] {
+  --theme-accent: #FF6EC7;
+  --theme-accent-secondary: #FFFF00;
+  --theme-bg-dark: #1A0A2E;
+  --theme-bg-card: #251240;
+  --theme-bg-card-hover: #331A55;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  color: var(--color-text-primary);
+  background: var(--color-bg-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glow effect utilities */
+.glow-accent {
+  box-shadow: 0 0 20px color-mix(in srgb, var(--theme-accent) 30%, transparent),
+              0 0 60px color-mix(in srgb, var(--theme-accent) 10%, transparent);
+}
+
+.glow-accent-strong {
+  box-shadow: 0 0 30px color-mix(in srgb, var(--theme-accent) 50%, transparent),
+              0 0 80px color-mix(in srgb, var(--theme-accent) 20%, transparent);
+}
+
+.text-glow {
+  text-shadow: 0 0 20px color-mix(in srgb, var(--theme-accent) 40%, transparent);
+}
+
+/* Grid background pattern */
+.grid-bg {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--theme-accent) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--theme-accent) 5%, transparent) 1px, transparent 1px);
+  background-size: 60px 60px;
+}

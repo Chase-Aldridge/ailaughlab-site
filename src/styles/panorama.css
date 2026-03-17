@@ -1,0 +1,34 @@
+/* Panoramic scene animations */
+@keyframes panorama-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.panorama-layer {
+  display: flex;
+  will-change: transform;
+}
+
+.panorama-layer--bg {
+  animation: panorama-scroll 120s linear infinite;
+}
+
+.panorama-layer--mid {
+  animation: panorama-scroll 90s linear infinite;
+}
+
+.panorama-layer--fg {
+  animation: panorama-scroll 60s linear infinite;
+}
+
+/* Pause on hover */
+.panorama-container:hover .panorama-layer {
+  animation-play-state: paused;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .panorama-layer {
+    animation: none !important;
+  }
+}

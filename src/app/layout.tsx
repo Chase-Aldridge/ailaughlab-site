@@ -5,7 +5,7 @@ import { ThemeProvider } from '@/components/theme/ThemeProvider'
 import { ThemeSelector } from '@/components/theme/ThemeSelector'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import { CursorGlow } from '@/components/effects/CursorGlow'
+import { MouseFollower } from '@/components/effects/MouseFollower'
 import { KonamiEgg } from '@/components/effects/KonamiEgg'
 
 const inter = Inter({
@@ -52,7 +52,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <ThemeSelector />
-          <CursorGlow />
+          <MouseFollower />
           <KonamiEgg />
           <Header />
           <main>{children}</main>

@@ -20,7 +20,6 @@ const defaultValue: ThemeContextValue = {
 const ThemeContext = createContext<ThemeContextValue>(defaultValue)
 
 const STORAGE_KEY = 'all-theme'
-const VISITED_KEY = 'all-visited'
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<ThemeId>(defaultTheme)
@@ -29,16 +28,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY) as ThemeId | null
-    const visited = localStorage.getItem(VISITED_KEY)
-
     if (stored && themes[stored]) {
       setThemeState(stored)
     }
-
-    if (!visited) {
-      setShowSelector(true)
-    }
-
     setMounted(true)
   }, [])
 
@@ -51,7 +43,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const setTheme = useCallback((newTheme: ThemeId) => {
     setThemeState(newTheme)
     localStorage.setItem(STORAGE_KEY, newTheme)
-    localStorage.setItem(VISITED_KEY, 'true')
     setShowSelector(false)
   }, [])
 

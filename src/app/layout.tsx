@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'AI Laugh Lab | The AI Comedy Community',
     description:
-      'Where AI meets comedy. 500+ creators experimenting with AI humor. Free to join.',
+      'Where AI meets comedy. 100+ creators experimenting with AI humor. Free to join.',
     url: 'https://ailaughlab.com',
     siteName: 'AI Laugh Lab',
     type: 'website',

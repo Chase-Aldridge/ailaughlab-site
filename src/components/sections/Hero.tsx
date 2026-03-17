@@ -156,7 +156,7 @@ export function Hero() {
             transition={{ delay: 1 }}
             className="mt-16 flex items-center justify-center gap-8 text-xs font-mono uppercase tracking-[0.15em] text-text-muted"
           >
-            <span>500+ Members</span>
+            <span>100+ Members</span>
             <span className="w-1 h-1 rounded-full bg-text-muted" />
             <span>Free Forever</span>
             <span className="w-1 h-1 rounded-full bg-text-muted" />

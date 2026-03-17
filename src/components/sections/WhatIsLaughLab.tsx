@@ -15,8 +15,8 @@ const features = [
   {
     icon: Users,
     title: 'Community-Powered',
-    description: '500+ creators sharing what works, what flops, and why. Learn faster together.',
-    stat: '500+',
+    description: '100+ creators sharing what works, what flops, and why. Learn faster together.',
+    stat: '100+',
     statLabel: 'active members',
   },
   {

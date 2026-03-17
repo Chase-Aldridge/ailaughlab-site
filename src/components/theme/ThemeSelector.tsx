@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
+import { X } from 'lucide-react'
 import { useTheme } from './ThemeProvider'
 import { themes, themeIds, type ThemeId } from './theme-config'
 
@@ -12,7 +13,7 @@ const themePreviewColors: Record<ThemeId, { bg: string; accent: string; secondar
 }
 
 export function ThemeSelector() {
-  const { showSelector, setTheme } = useTheme()
+  const { showSelector, setShowSelector, setTheme } = useTheme()
 
   return (
     <AnimatePresence>
@@ -22,14 +23,25 @@ export function ThemeSelector() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+          onClick={() => setShowSelector(false)}
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="w-full max-w-3xl"
+            className="w-full max-w-3xl relative"
+            onClick={(e) => e.stopPropagation()}
           >
+            {/* Close button */}
+            <button
+              onClick={() => setShowSelector(false)}
+              className="absolute -top-12 right-0 text-white/50 hover:text-white transition-colors"
+              aria-label="Close theme selector"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
             <h2
               className="text-3xl sm:text-4xl font-bold text-center mb-3"
               style={{ fontFamily: 'var(--font-space-grotesk)' }}
@@ -53,7 +65,6 @@ export function ThemeSelector() {
                     className="relative rounded-2xl p-6 text-left transition-shadow hover:shadow-2xl cursor-pointer border border-white/10"
                     style={{ backgroundColor: colors.bg }}
                   >
-                    {/* Color accent bar */}
                     <div
                       className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl"
                       style={{

@@ -78,7 +78,7 @@ export function JoinCTA() {
             <span className="w-1 h-1 rounded-full bg-text-muted" />
             <span>No Credit Card</span>
             <span className="w-1 h-1 rounded-full bg-text-muted" />
-            <span>500+ Members</span>
+            <span>100+ Members</span>
           </div>
         </div>
       </motion.div>

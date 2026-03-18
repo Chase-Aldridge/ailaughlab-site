@@ -3,12 +3,12 @@ import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
   const host = request.headers.get('host') || ''
-  const url = request.nextUrl.clone()
 
   // Redirect www to apex
   if (host.startsWith('www.')) {
-    url.host = host.replace('www.', '')
-    return NextResponse.redirect(url, 301)
+    const apex = host.replace('www.', '')
+    const path = request.nextUrl.pathname + request.nextUrl.search
+    return NextResponse.redirect(`https://${apex}${path}`, 301)
   }
 
   return NextResponse.next()
